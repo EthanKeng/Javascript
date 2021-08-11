@@ -32,6 +32,22 @@ var hash = {
   "y":"youtube.com",
   "z":"zh.kengblog.com"
 }
+// retrieve data in Local storage
+let localStorageTrigger = function(){
+  var hashInLocalStorage = JSON.parse(localStorage.getItem('hashTable') || null)
+  if(hashInLocalStorage){
+    hash=hashInLocalStorage
+    let removeButton =document.createElement('button')
+    removeStoredHash.appendChild(removeButton)
+    removeButton.textContent ="Remove changes"
+    removeButton.onclick = function(){
+      localStorage.clear();
+      removeButton.remove()
+
+    }
+  }
+}
+localStorageTrigger()
 
 for (let i=0;i<keys["length"];i++){
   // console.log(i)
@@ -47,10 +63,15 @@ for (let i=0;i<keys["length"];i++){
       console.log(x.target.id)
       let newURL = prompt("Assign a new URL")
       hash[k] = newURL
+      localStorage.setItem("hashTable",JSON.stringify(hash))
+      localStorageTrigger()
+    }
+    kbd.onmouseover= function(x){
+      let showURL = document.getElementById("showURL")
+      showURL.textContent = hash[x.target.id]
     }
     kbd.appendChild(buttonEdit)
     div1.appendChild(kbd)
-    
   }
 }
 
@@ -60,4 +81,9 @@ document.onkeypress = function(pressedEvent){
   console.log(hash[key])
   // location.href = "https://"+hash[key]
   window.open("https://"+hash[key],"_blank")
+}
+
+
+let showURL = function(){
+
 }
