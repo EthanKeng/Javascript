@@ -25,7 +25,7 @@ var hash = {
   "r":"regexpal.com",
   "s":"sbisec.co.jp",
   "t":"twitter.com",
-  "u":"uedemy.com",
+  "u":"udemy.com",
   "v":"voicetube.com",
   "w":"wappalyzer.com",
   "x":"xiedaimala.com",
@@ -62,6 +62,9 @@ for (let i=0;i<keys["length"];i++){
     let buttonEdit =document.createElement('button')
     buttonEdit.textContent="Edit URL"
     buttonEdit.id = k
+    iconImg = document.createElement('img')
+    iconImg.src = 'https://'+hash[k]+'/favicon.ico'
+    // iconImg.alt = "Icon"
     buttonEdit.onclick = function(x){
       console.log(x.target.id)
       let newURL = prompt("Assign a new URL")
@@ -73,6 +76,7 @@ for (let i=0;i<keys["length"];i++){
       let showURL = document.getElementById("showURL")
       showURL.textContent = hash[x.target.id]
     }
+    kbd.appendChild(iconImg)
     kbd.appendChild(buttonEdit)
     div1.appendChild(kbd)
   }
