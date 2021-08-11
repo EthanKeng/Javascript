@@ -1,3 +1,4 @@
+// Initiate data
 var keys = {
   "0":["q","w","e","r","t","y","u","i","o","p"],
   "1":["a","s","d","f","g","h","j","k","l"],
@@ -40,8 +41,10 @@ let localStorageTrigger = function(){
   if(hashInLocalStorage){
     hash=hashInLocalStorage
     let removeButton =document.createElement('button')
-    removeStoredHash.appendChild(removeButton)
-    removeButton.textContent ="Remove changes"
+    if(!removeStoredHash.firstChild){
+      removeStoredHash.appendChild(removeButton)
+      removeButton.textContent ="Remove changes"
+    }
     removeButton.onclick = function(){
       localStorage.removeItem("hashTable");
       removeButton.remove();
@@ -52,6 +55,7 @@ let localStorageTrigger = function(){
 }
 localStorageTrigger()
 
+// Create keyboard
 for (let i=0;i<keys["length"];i++){
   // console.log(i)
   let div1 = document.createElement('div')
@@ -69,8 +73,15 @@ for (let i=0;i<keys["length"];i++){
     } 
     buttonEdit.onclick = function(x){
       console.log(x.target.id)
+      let iconImg2 = x["target"].previousSibling
+      console.log(iconImg2) 
       let newURL = prompt("Assign a new URL")
       hash[k] = newURL
+      iconImg2.src = 'https://'+newURL+'/favicon.ico'
+      iconImg2.onerror = function(x){
+        x.target.src='./icon.svg'
+      } 
+  
       localStorage.setItem("hashTable",JSON.stringify(hash))
       localStorageTrigger()
     }
@@ -84,6 +95,7 @@ for (let i=0;i<keys["length"];i++){
   }
 }
 
+// Listen event
 document.onkeypress = function(pressedEvent){
   console.log(pressedEvent["key"])
   key = pressedEvent["key"]
