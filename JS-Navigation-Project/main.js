@@ -32,6 +32,8 @@ var hash = {
   "y":"youtube.com",
   "z":"zh.kengblog.com"
 }
+localStorage.setItem("originalHash",JSON.stringify(hash))
+
 // retrieve data in Local storage
 let localStorageTrigger = function(){
   var hashInLocalStorage = JSON.parse(localStorage.getItem('hashTable') || null)
@@ -41,8 +43,9 @@ let localStorageTrigger = function(){
     removeStoredHash.appendChild(removeButton)
     removeButton.textContent ="Remove changes"
     removeButton.onclick = function(){
-      localStorage.clear();
-      removeButton.remove()
+      localStorage.removeItem("hashTable");
+      removeButton.remove();
+      hash = JSON.parse(localStorage.getItem('originalHash'))
 
     }
   }
