@@ -64,7 +64,9 @@ for (let i=0;i<keys["length"];i++){
     buttonEdit.id = k
     iconImg = document.createElement('img')
     iconImg.src = 'https://'+hash[k]+'/favicon.ico'
-    // iconImg.alt = "Icon"
+    iconImg.onerror = function(x){
+      x.target.src='./icon.svg'
+    } 
     buttonEdit.onclick = function(x){
       console.log(x.target.id)
       let newURL = prompt("Assign a new URL")
