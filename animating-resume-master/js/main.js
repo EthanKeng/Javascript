@@ -99,7 +99,7 @@ Script: Python, VBA, bash
 
 # Contact
 
-- Email me@kengblog.com
+- Email: <me@kengblog.com>
 
 
 `
