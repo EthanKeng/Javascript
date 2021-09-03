@@ -10,7 +10,6 @@ $('#cmd').click(function () {
         'width': 170,
             'elementHandlers': specialElementHandlers
     });
-    // doc.save('sample-file.pdf');
 
     doc.setFontSize(20);
     // doc.autoTable({
@@ -19,8 +18,9 @@ $('#cmd').click(function () {
     //     // ここでフォントの指定をしないとテーブル内部の文字が化ける
     //     // styles: { font: 'Koruri-Regular', fontStyle: 'normal', fontSize: 12 }
     // });
+    doc.save('sample-file.pdf');
 
-    doc.output('dataurlnewwindow');
+    // doc.output('dataurlnewwindow');
     // print2newTab(doc)
 });
 
