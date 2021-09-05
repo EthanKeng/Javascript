@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
 
     <style>
         #content {
@@ -118,6 +119,9 @@
     <!-- https://fonts.google.com/specimen/Klee+One?subset=japanese#standard-styles -->
     <script src="font/SawarabiMincho-Regular-normal.js"></script>
     <!-- https://fonts.google.com/specimen/Sawarabi+Mincho?subset=japanese -->
+    <script src="font/Roboto-Regular-normal.js"></script>
+    <!-- https://fonts.google.com/specimen/Roboto?selection.family=Roboto -->
+
     <script>
 
         // 注意：jsPDF fontconverter 只針對 ttf 的字型有支援， otf 字型我試好幾種方法都失敗
@@ -134,6 +138,9 @@
 
         doc.addFileToVFS('font/SawarabiMincho-Regular-normal.ttf', font3);
         doc.addFont('font/SawarabiMincho-Regular.ttf', 'SawarabiMincho-Regular', 'normal');
+
+        doc.addFileToVFS('font/Roboto-Regular-normal.ttf', font4);
+        doc.addFont('font/Roboto-Regular-normal.ttf', 'Roboto-Regular', 'normal');
 
     </script>
 
